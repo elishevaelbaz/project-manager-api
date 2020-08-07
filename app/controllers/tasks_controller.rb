@@ -13,8 +13,18 @@ class TasksController < ApplicationController
   def create 
     # byebug
 
-    task = Task.create(name: params[:name], description: params[:description], created_by: @current_user.id, category_id: params[:category_id], due_date: params[:due_date] )
+    task = Task.create(name: params[:name], description: params[:description], created_by: @current_user.username, category_id: params[:category_id], due_date: params[:due_date] )
     render json: task
+  end
+
+  def update
+
+  end
+
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    render json: {message: "Task has been deleted", id: task.id}
   end
 
 end
