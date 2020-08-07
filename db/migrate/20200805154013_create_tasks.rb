@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.text :description
       t.date :due_date
       t.integer :category_id
-      t.integer :created_by
+      t.string :created_by
 
       t.timestamps
     end
