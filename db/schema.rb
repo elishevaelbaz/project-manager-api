@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_154240) do
     t.text "description"
     t.date "due_date"
     t.integer "category_id"
-    t.integer "created_by"
+    t.string "created_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
