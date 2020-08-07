@@ -11,7 +11,10 @@ class TasksController < ApplicationController
   end
 
   def create 
-    byebug
+    # byebug
+
+    task = Task.create(name: params[:name], description: params[:description], created_by: @current_user.id, category_id: params[:category_id], due_date: params[:due_date] )
+    render json: task
   end
 
 end
