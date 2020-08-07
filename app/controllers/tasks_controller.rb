@@ -18,6 +18,11 @@ class TasksController < ApplicationController
   end
 
   def update
+    task = Task.find(params[:id])
+    #fix this so it's not just description
+    task.update(description: params[:description] )
+    render json: task
+
 
   end
 
