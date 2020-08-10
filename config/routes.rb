@@ -4,14 +4,12 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :tasks, only: [:index, :show, :create, :update, :destroy]
   resources :categories, only: [:index]
-  # resources :comments, only: [:index, :create, :update, :destroy]
+  resources :comments, only: [:index, :create, :destroy]
   resources :user_boards, only: [:index]
 
   post '/login', to: 'users#login'
   get '/autologin', to: 'users#autologin'
 
   get '/logout', to: 'users#logout'
-
-  get '/userstats', to: 'games#userstats'
 
 end
