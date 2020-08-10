@@ -17,7 +17,8 @@ class TasksController < ApplicationController
   def create 
     # byebug
 
-    task = Task.create(name: params[:name], description: params[:description], created_by: @current_user.username, category_id: params[:category_id], due_date: params[:due_date] )
+    category = Category.find_by(name: params[:category])
+    task = Task.create(name: params[:name], description: params[:description], created_by: @current_user.username, category_id: category.id, due_date: params[:due_date] )
     render json: task
   end
 
