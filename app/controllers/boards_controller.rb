@@ -9,6 +9,7 @@ class BoardsController < ApplicationController
 
   def create 
     board = Board.create(name: params[:name], owner_id: @current_user.id)
+    UserBoard.create(user_id:@current_user.id, board_id: board.id)
     render json: board
   end
 
