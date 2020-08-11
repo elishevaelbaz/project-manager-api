@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     # tasks = Task.where(user_id: @current_user)
     task = Task.find(params[:task_id])
     
-    comments = task.comments # see board model for the method definition
+    comments = task.comments 
     render json: comments
   end
 
