@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :tasks, only: [:index, :show, :create, :update, :destroy]
   resources :categories, only: [:index, :create]
   resources :comments, only: [:index, :create, :destroy]
-  resources :user_boards, only: [:index]
+  resources :user_boards, only: [:index, :create]
 
   post '/login', to: 'users#login'
   get '/autologin', to: 'users#autologin'

@@ -24,8 +24,9 @@ class TasksController < ApplicationController
 
   def update
     task = Task.find(params[:id])
-    #fix this so it's not just description
-    task.update(description: params[:description] )
+
+    category = Category.find_by(name: params[:category])
+    task.update(name: params[:name], description: params[:description], category_id: category.id, due_date: params[:due_date] )
     render json: task
 
 
