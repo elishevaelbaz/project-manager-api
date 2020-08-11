@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :boards, only: [:index, :create]
   resources :users, only: [:create]
   resources :tasks, only: [:index, :show, :create, :update, :destroy]
-  resources :categories, only: [:index]
+  resources :categories, only: [:index, :create]
   resources :comments, only: [:index, :create, :destroy]
   resources :user_boards, only: [:index]
 

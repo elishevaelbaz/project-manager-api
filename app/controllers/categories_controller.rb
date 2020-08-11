@@ -9,4 +9,8 @@ class CategoriesController < ApplicationController
     render json: categories
   end
 
+  def create 
+    category = Category.create(name: params[:name], board_id: params[:board_id] )
+    render json: category
+  end
 end
