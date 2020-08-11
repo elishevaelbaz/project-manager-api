@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :tasks, only: [:index, :show, :create, :update, :destroy]
   resources :categories, only: [:index, :create]
-  resources :comments, only: [:index, :create, :destroy]
+  resources :comments, only: [:index, :create, :update, :destroy]
   resources :user_boards, only: [:index, :create]
 
   post '/login', to: 'users#login'

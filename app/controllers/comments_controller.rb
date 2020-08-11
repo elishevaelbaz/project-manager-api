@@ -24,14 +24,14 @@ class CommentsController < ApplicationController
       render json: comment
     end
   
-#     def update
-#       comment = comment.find(params[:id])
-#       #fix this so it's not just description
-#       comment.update(text: params[:text] )
-#       render json: comment
+    def update
+      comment = Comment.find(params[:id])
+      #fix this so it's not just description
+      comment.update(text: params[:text])
+      render json: comment
   
   
-#     end
+    end
   
     def destroy
       comment = comment.find(params[:id])
