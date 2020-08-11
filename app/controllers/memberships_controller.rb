@@ -1,12 +1,12 @@
-class UserBoardsController < ApplicationController
+class MembershipsController < ApplicationController
 
 
   def index
 
      board = Board.find(params[:board_id])
     
-     user_boards = board.user_boards 
-     render json: user_boards
+     memberships = board.memberships 
+     render json: memberships
   end
 
   def create
@@ -15,13 +15,13 @@ class UserBoardsController < ApplicationController
 
     # if the user exists
     if user.id
-      user_board = UserBoard.create(user_id: user.id, board_id: params[:board_id])
+      membership = Membership.create(user_id: user.id, board_id: params[:board_id])
 
-      if user_board.valid?
+      if membership.valid?
 
-        render json: user_board
+        render json: membership
       else # if user already belongs to the board
-        render json: { messages: user_board.errors.full_messages}, status: :bad_request
+        render json: { messages: membership.errors.full_messages}, status: :bad_request
       end
 
     # if user doesn't exist

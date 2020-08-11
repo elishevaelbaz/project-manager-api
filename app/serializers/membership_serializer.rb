@@ -1,4 +1,4 @@
-class UserBoardSerializer < ActiveModel::Serializer
+class MembershipSerializer < ActiveModel::Serializer
   attributes :board_id, :username
   # belongs_to :user
 

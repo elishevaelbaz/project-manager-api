@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 2020_08_05_154240) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "board_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "mentions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "task_id"
@@ -72,13 +79,6 @@ ActiveRecord::Schema.define(version: 2020_08_05_154240) do
     t.date "due_date"
     t.integer "category_id"
     t.string "created_by"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_boards", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "board_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

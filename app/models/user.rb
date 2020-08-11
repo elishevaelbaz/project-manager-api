@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :user_boards
-  has_many :boards, through: :user_boards
+  has_many :memberships
+  has_many :boards, through: :memberships
 
   has_many :comments
 
