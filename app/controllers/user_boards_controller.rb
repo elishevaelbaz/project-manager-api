@@ -2,8 +2,11 @@ class UserBoardsController < ApplicationController
 
 
   def index
-    user_boards = UserBoard.all
-    render json: user_boards
+
+     board = Board.find(params[:board_id])
+    
+     user_boards = board.user_boards 
+     render json: user_boards
   end
 
   def create
