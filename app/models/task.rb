@@ -8,4 +8,9 @@ class Task < ApplicationRecord
 
   has_many :mentions, dependent: :destroy
 
+
+  validates :name, presence: true
+  validates :category_id, presence: true
+
+
 end
