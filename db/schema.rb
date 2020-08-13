@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_154240) do
     t.date "due_date"
     t.integer "category_id"
     t.string "created_by"
+    t.integer "position", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
