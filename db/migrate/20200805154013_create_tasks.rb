@@ -7,6 +7,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.integer :category_id
       t.string :created_by
       t.integer :position, null: false
+      t.string :assigned_to
 
       t.timestamps
     end

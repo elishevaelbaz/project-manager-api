@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     # byebug
 
     # category = Category.find_by(name: params[:category])
-    task = Task.create(name: params[:name], description: params[:description], created_by: @current_user.username, category_id: params[:category_id], due_date: params[:due_date], position: params[:position] )
+    task = Task.create(name: params[:name], description: params[:description], created_by: @current_user.username, category_id: params[:category_id], due_date: params[:due_date], position: params[:position], assigned_to: params[:assigned_to] )
     if task.valid?
       render json: task
     else 
@@ -35,8 +35,15 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     # byebug
     # category = Category.find_by(name: params[:category])
-    task.update(name: params[:name], description: params[:description], category_id: params[:category_id], due_date: params[:due_date], position: params[:position])
+    task.update(name: params[:name], description: params[:description], category_id: params[:category_id], due_date: params[:due_date], position: params[:position], assigned_to: params[:assigned_to])
     # task.update(category_id: params[:category_id])
+
+    # if they clear out the assigned to dropdown
+    if params[:assigned_to] == ""
+      task.update(assigned_to: nil)
+
+    end
+
     if task.valid?
       render json: task
     else 
