@@ -5,6 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts ("destroying all data...")
+
+User.destroy_all
+Board.destroy_all
+Membership.destroy_all
+Category.destroy_all
+Task.destroy_all
+Comment.destroy_all
+Attachment.destroy_all
+Label.destroy_all
+Mention.destroy_all
+TaskLabel.destroy_all
+
 puts ("seeding...")
 u1 = User.create(username: "elisheva", password: "1234")
 u2 = User.create(username: "Sally", password: "1234")
@@ -26,10 +39,10 @@ c2 = Category.create(name: "in progress", board_id: b1.id)
 c3 = Category.create(name: "complete", board_id: b1.id)
 c4 = Category.create(name: "todo", board_id: b2.id)
 
-t1 = Task.create(name: Faker::Marketing.buzzwords, description: Faker::Lorem.paragraph, category_id: c1.id, created_by: u1.username)
-t2 = Task.create(name: Faker::Marketing.buzzwords, description: Faker::Lorem.paragraph, category_id: c1.id, created_by: u2.username)
-t3 = Task.create(name: Faker::Marketing.buzzwords, description: Faker::Lorem.paragraph, category_id: c2.id, created_by: u2.username)
-t4 = Task.create(name: Faker::Marketing.buzzwords, description: Faker::Lorem.paragraph, category_id: c3.id, created_by: u4.username)
+t1 = Task.create(name: Faker::Marketing.buzzwords, description: Faker::Lorem.paragraph, category_id: c1.id, created_by: u1.username, position: 1)
+t2 = Task.create(name: Faker::Marketing.buzzwords, description: Faker::Lorem.paragraph, category_id: c1.id, created_by: u2.username, position: 2)
+t3 = Task.create(name: Faker::Marketing.buzzwords, description: Faker::Lorem.paragraph, category_id: c2.id, created_by: u2.username, position: 1)
+t4 = Task.create(name: Faker::Marketing.buzzwords, description: Faker::Lorem.paragraph, category_id: c3.id, created_by: u4.username, position: 1)
 
 cm1 = Comment.create(task_id: t1.id, user_id: u1.id, text: Faker::Lorem.paragraph)
 cm2 = Comment.create(task_id: t1.id, user_id: u1.id, text: Faker::Lorem.paragraph)

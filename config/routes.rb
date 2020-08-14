@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'users#logout'
 
+  patch '/tasks/:id/position', to: 'tasks#updatePosition', as: 'update_position'
+
 end
