@@ -4,3 +4,5 @@ class Category < ApplicationRecord
 
   validates :name, uniqueness: { scope: :board_id }
 end
+
+#{ order(position: :asc) }#,

@@ -33,16 +33,35 @@ class TasksController < ApplicationController
 
   def update
     task = Task.find(params[:id])
-
+    # byebug
     # category = Category.find_by(name: params[:category])
     task.update(name: params[:name], description: params[:description], category_id: params[:category_id], due_date: params[:due_date], position: params[:position])
-
+    # task.update(category_id: params[:category_id])
     if task.valid?
       render json: task
     else 
       render json: { "status": "error", "error": task.errors.full_messages.join(" ")}
     end
 
+
+  end
+
+  def updatePosition
+    task = Task.find(params[:id])
+# byebug
+    if params[:category_id]
+      task.update(category_id: params[:category_id])
+    end
+
+    # byebug
+    
+      task.insert_at(params[:position])
+
+      category = Category.find_by(id: params[:category_id])
+      sorted_tasks = category.tasks.order("position ASC") 
+
+# byebug
+      render json: sorted_tasks
 
   end
 
@@ -53,3 +72,8 @@ class TasksController < ApplicationController
   end
 
 end
+
+
+# def task_params
+#   params.permit(:name, :description, :category_id, :due_date, :position)
+# end
