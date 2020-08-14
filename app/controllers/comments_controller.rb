@@ -3,9 +3,12 @@ class CommentsController < ApplicationController
   def index
     # byebug
     # tasks = Task.where(user_id: @current_user)
+    # if params[:task_id]
     task = Task.find(params[:task_id])
-    
-    comments = task.comments 
+    comments = task.comments
+    # else
+    #   comments = Comment.all
+    # end 
     render json: comments
   end
 
