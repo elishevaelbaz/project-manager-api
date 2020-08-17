@@ -9,11 +9,15 @@ class UsersController < ApplicationController
   def create
         # giving everyone an avatar when they are created (hardcoding)
     #     avatarNames = ["joe", "jenny", "steve", "elliot", "stevie", "christian", "matt"]
+    avatarNames = [
+      "helen", "jenny", "elliot", "stevie", "christian", "matt", "chris", "nan", "veronika", "joe", "tom", "steve", "daniel"
+]
 
-    # projectedId = User.last.id + 1
-    # index = projectedId % avatarNames.length
-    # user = User.create(user_params.merge(avatar: avatarNames[index]))
-    user = User.create(user_params)
+    projectedId = User.last.id + 1
+    index = projectedId % avatarNames.length
+    user = User.create(user_params.merge(avatar: avatarNames[index]))
+
+    # user = User.create(user_params)
     if user.valid?
       session[:user_id] = user.id
       render json: user

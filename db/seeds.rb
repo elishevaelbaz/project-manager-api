@@ -19,11 +19,11 @@ Mention.destroy_all
 TaskLabel.destroy_all
 
 puts ("seeding...")
-u1 = User.create(username: "elisheva", password: "1234")
-u2 = User.create(username: "Sally", password: "1234")
-u3 = User.create(username: "annie", password: "1234")
-u4 = User.create(username: "mike", password: "1234")
-u5 = User.create(username: "Don", password: "1234")
+u1 = User.create(username: "elisheva", password: "1234", avatar: "helen")
+u2 = User.create(username: "Sally", password: "1234", avatar: "jenny")
+u3 = User.create(username: "annie", password: "1234", avatar: "elliot")
+u4 = User.create(username: "mike", password: "1234", avatar: "stevie")
+u5 = User.create(username: "Don", password: "1234", avatar: "christian")
 
 
 b1 = Board.create(name: "Mod 5 Project", owner_id: u1.id)
