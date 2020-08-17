@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :create]
   resources :comments, only: [:index, :create, :update, :destroy]
   resources :memberships, only: [:index, :create]
+  resources :attachments, only: [:index, :create]
 
   post '/login', to: 'users#login'
   get '/autologin', to: 'users#autologin'

@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
   # skip_before_action :authorized, only: [:index]
   def index
     boards = @current_user.boards
-    
+    # byebug
     render json: boards
   end
 

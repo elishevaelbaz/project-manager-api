@@ -4,6 +4,7 @@ class CreateAttachments < ActiveRecord::Migration[6.0]
       t.integer :task_id
       t.string :image
       t.string :video
+      t.integer :user_id
 
       t.timestamps
     end

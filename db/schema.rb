@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_154240) do
     t.integer "task_id"
     t.string "image"
     t.string "video"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

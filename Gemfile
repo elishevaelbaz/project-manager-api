@@ -44,3 +44,5 @@ gem 'active_model_serializers'
 gem 'faker'
 
 gem 'acts_as_list'
+
+gem 'cloudinary'

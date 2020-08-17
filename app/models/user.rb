@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :boards, through: :memberships
 
   has_many :comments
+  has_many :attachments
 
   has_secure_password
   validates :username, presence: true, uniqueness: { case_sensitive: false }
