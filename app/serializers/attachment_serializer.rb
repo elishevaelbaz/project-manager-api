@@ -1,4 +1,4 @@
-class BoardSerializer < ActiveModel::Serializer
+class AttachmentSerializer < ActiveModel::Serializer
   attributes :id, :image, :task_id, :user_id, :username
   # belongs_to :user
 
