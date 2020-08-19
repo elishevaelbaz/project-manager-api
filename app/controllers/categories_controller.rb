@@ -13,4 +13,13 @@ class CategoriesController < ApplicationController
     category = Category.create(name: params[:name], board_id: params[:board_id] )
     render json: category
   end
+
+  def update
+    category = Category.find(params[:id])
+
+    category.update(name: params[:name])
+
+    render json: category
+
+  end
 end
