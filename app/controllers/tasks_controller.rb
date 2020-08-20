@@ -62,14 +62,9 @@ class TasksController < ApplicationController
 
     task.insert_at(params[:position])
 
-    new_category = Category.find_by(id: params[:category_id])
-    old_category = Category.find_by(id: params[:prev_category_id])
+    tasks = Task.where(category_id: [params[:category_id], params[:prev_category_id]]).order("category_id ASC, position ASC") 
 
-    sorted_new_category_tasks = new_category.tasks.order("position ASC") 
-    sorted_old_category_tasks = old_category.tasks.order("position ASC") 
-
-    render json: {new_category_tasks: sorted_new_category_tasks, old_category_tasks: sorted_old_category_tasks}
-
+    render json: tasks 
   end
 
   def destroy

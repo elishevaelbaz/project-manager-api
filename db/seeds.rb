@@ -33,6 +33,7 @@ ub1 = Membership.create(user_id: u1.id, board_id: b1.id)
 ub2 = Membership.create(user_id: u2.id, board_id: b1.id)
 ub3 = Membership.create(user_id: u4.id, board_id: b1.id)
 ub4 = Membership.create(user_id: u2.id, board_id: b2.id)
+ub5 = Membership.create(user_id: u1.id, board_id: b2.id)
 
 c1 = Category.create(name: "todo", board_id: b1.id)
 c2 = Category.create(name: "in progress", board_id: b1.id)

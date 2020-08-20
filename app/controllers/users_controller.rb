@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     #     avatarNames = ["joe", "jenny", "steve", "elliot", "stevie", "christian", "matt"]
     avatarNames = [
       "helen", "jenny", "elliot", "stevie", "christian", "matt", "chris", "nan", "veronika", "joe", "tom", "steve", "daniel"
-]
+    ]
 
     projectedId = User.last.id + 1
     index = projectedId % avatarNames.length

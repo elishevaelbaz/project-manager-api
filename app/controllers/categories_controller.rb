@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   def index
     current_board = Board.find(params[:board_id])
     # byebug
-    categories = current_board.categories
+    categories = current_board.categories.order("id ASC") 
     # categories = @current_user.boards.map(b)
     render json: categories
   end

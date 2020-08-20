@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :comments, only: [:index, :create, :update, :destroy]
   resources :memberships, only: [:index, :create]
   resources :attachments, only: [:index, :create, :destroy]
-
+  resources :labels, only: [:index, :create, :destroy]
+  resources :task_labels, only: [:index, :create, :destroy]
+  
   post '/login', to: 'users#login'
   get '/autologin', to: 'users#autologin'
 
