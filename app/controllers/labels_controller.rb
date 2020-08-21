@@ -4,7 +4,7 @@ class LabelsController < ApplicationController
     
     label = Label.create(name: params[:name], board_id: params[:board_id], color: params[:color])
   
-    TaskLabel.create(task_id: params[:task_id], label_id: label.id)
+    # TaskLabel.create(task_id: params[:task_id], label_id: label.id)
 
 
     render json: label
