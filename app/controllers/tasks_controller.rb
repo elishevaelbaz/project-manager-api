@@ -27,7 +27,7 @@ class TasksController < ApplicationController
     if task.valid?
       render json: task
     else 
-      render json: { "status": "error", "error": task.errors.full_messages.join(" ")}
+      render json: { "status": "error", errors: task.errors.full_messages}
     end
   end
 
@@ -47,7 +47,7 @@ class TasksController < ApplicationController
     if task.valid?
       render json: task
     else 
-      render json: { "status": "error", "error": task.errors.full_messages.join(" ")}
+      render json: { "status": "error", errors: task.errors.full_messages}
     end
 
 
