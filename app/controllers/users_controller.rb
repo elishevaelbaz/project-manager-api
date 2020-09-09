@@ -1,14 +1,9 @@
 class UsersController < ApplicationController
 
   skip_before_action :authorized, only: [:create, :login]
-  # def index
-  #   users = User.all
-  #   render json: users
-  # end
 
   def create
-        # giving everyone an avatar when they are created (hardcoding)
-    #     avatarNames = ["joe", "jenny", "steve", "elliot", "stevie", "christian", "matt"]
+    # giving everyone an avatar when they are created (hardcoding)
     avatarNames = [
       "helen", "jenny", "elliot", "stevie", "christian", "matt", "chris", "nan", "veronika", "joe", "tom", "steve", "daniel"
     ]
@@ -17,7 +12,6 @@ class UsersController < ApplicationController
     index = projectedId % avatarNames.length
     user = User.create(user_params.merge(avatar: avatarNames[index]))
 
-    # user = User.create(user_params)
     if user.valid?
       session[:user_id] = user.id
       render json: user
@@ -27,8 +21,6 @@ class UsersController < ApplicationController
 
   end
 
-
-  # login
   def login
 
     user = User.find_by(username: params[:username])
@@ -41,8 +33,6 @@ class UsersController < ApplicationController
     end
   end
 
-  #before_action :authorized
-  # will have @current_user
   def autologin
     render json: @current_user
   end
@@ -52,8 +42,6 @@ class UsersController < ApplicationController
 
     render json: { message: "Successfully Logged Out"}
   end
-
-
 
   def user_params
     params.permit(:username, :password)

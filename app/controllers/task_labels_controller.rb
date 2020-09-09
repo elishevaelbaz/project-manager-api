@@ -7,7 +7,6 @@ class TaskLabelsController < ApplicationController
   end
 
   def index
-    # byebug
 
     # if params[:board_id]
     #   board = Board.find(params[:board_id])
@@ -24,9 +23,7 @@ class TaskLabelsController < ApplicationController
   end
 
   def destroy
-# byebug
     task_label = TaskLabel.find(params[:id])
-    # byebug
     
     task_label.destroy
     render json: {message: "Label has been deleted from this task", id: task_label.id}
